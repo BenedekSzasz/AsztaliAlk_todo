@@ -30,7 +30,7 @@
                   <Insets left="5.0" />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" onAction="#onActionDeleteButton" text="Törlés">
+            <Button mnemonicParsing="false" onAction="#onClickDeleteButton" text="Törlés">
                <VBox.margin>
                   <Insets left="15.0" right="15.0" />
                </VBox.margin>
@@ -54,7 +54,7 @@
                   <Insets top="5.0" />
                </VBox.margin>
             </TextField>
-            <Label text="Státusz: ">
+            <Label fx:id="statusLabel" text="Státusz: ">
                <VBox.margin>
                   <Insets top="5.0" />
                </VBox.margin>

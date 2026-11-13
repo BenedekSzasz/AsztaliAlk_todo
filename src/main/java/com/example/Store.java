@@ -19,7 +19,7 @@ public class Store {
             return null;
         }
     }
-    public static List<String> tryReadFile() throws FileNotFoundException {
+    private static List<String> tryReadFile() throws FileNotFoundException {
         File file = new File(fileName);
         List<String> todoList = new ArrayList<>();
         try(Scanner sc = new Scanner(file, "UTF-8");){
@@ -37,7 +37,7 @@ public class Store {
             e.printStackTrace();
         }
     }
-    public static void tryAppendTodoToFile(String todo) throws IOException {
+    private static void tryAppendTodoToFile(String todo) throws IOException {
         try (FileWriter writer = new FileWriter(
             fileName,
             Charset.forName("UTF-8"),
@@ -50,4 +50,35 @@ public class Store {
         }
     }
 
+    public static void writeAllToFile(List<String> todoList) {
+        try(FileWriter writer = new FileWriter(
+            fileName, 
+            Charset.forName("UTF-8"), 
+            false)){ {
+                for(String todo : todoList) {
+                    writer.write(todo);
+                    writer.write("\n");
+                }
+            }
+         } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @SuppressWarnings("unused")
+    private static void tryWriteAllToFile(List<String> todoList) throws IOException {
+        try (FileWriter writer = new FileWriter(
+            fileName,
+            Charset.forName("UTF-8"),
+            false
+         );) {
+            {
+             for(String todo : todoList) {
+                 writer.write(todo);
+                 writer.write("\n");
+                }
+            
+            }
+        }
+
+    }
 }
